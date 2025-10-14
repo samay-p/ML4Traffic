@@ -23,7 +23,9 @@ except IndexError:
 
 def main():
     actor_list = []
-
+    Sim_Time = 30
+    Num_Cars = 10
+    
     try:
         # Connect to the CARLA server
         client = carla.Client('localhost', 2000)
@@ -35,6 +37,7 @@ def main():
         blueprint_library = world.get_blueprint_library()
 
         # Set weather (Unimportant for purposes just need for initialization)
+        # Default Parameters
         weather = carla.WeatherParameters(
             cloudiness=30.0,
             precipitation=10.0,
@@ -42,7 +45,9 @@ def main():
         world.set_weather(weather)
 
         # Spawn ego vehicle
-        vehicle_bp = blueprint_library.filter('model3')[0]  # Tesla Model 3
+        vehicle_bp = blueprint_library.filter('model3')[0]  # Default Car Model Chosen is Tesla Model 3
+        vehicle_bp.set_attribute('color', '255,0,0')  # Default Car Colorization is Red
+        #In the future, color can be randomized to help train CV Model
         spawn_points = world.get_map().get_spawn_points()
         spawn_point = random.choice(spawn_points)
         vehicle = world.spawn_actor(vehicle_bp, spawn_point)
@@ -56,13 +61,17 @@ def main():
         camera_bp.set_attribute('image_size_y', '600')
         camera_bp.set_attribute('fov', '90')
 
+        #Change camera attributes to simulate different camera types/quality
+        #Given Values are default parameters
+
         camera_transform = carla.Transform(carla.Location(x=1.5, z=2.4))
         camera = world.spawn_actor(camera_bp, camera_transform, attach_to=vehicle)
         actor_list.append(camera)
         print("Camera attached to vehicle")
 
         # Spawn traffic vehicles
-        for _ in range(10):
+        # Number of cars can be changed to simulate different traffic conditions, Default is 10
+        for i in range(Num_Cars):
             vehicle_bp = random.choice(blueprint_library.filter('vehicle.*'))
             npc_spawn_point = random.choice(spawn_points)
             npc_vehicle = world.try_spawn_actor(vehicle_bp, npc_spawn_point)
@@ -74,6 +83,7 @@ def main():
 
         # Camera data processing
         # Used to Simulate Real Life Camera feed for CV Processing
+
         def process_image(image):
             """Convert raw camera data to an OpenCV image."""
             img_array = np.frombuffer(image.raw_data, dtype=np.uint8)
@@ -85,10 +95,10 @@ def main():
         camera.listen(lambda data: process_image(data))
 
         # Run for x Amount of Seconds (30 is Default)
-        time.sleep(30)
+        time.sleep(Sim_Time)
 
     #End Simulation after runtime
-    
+
     finally:
         print('Destroying actors...')
         for actor in actor_list:
