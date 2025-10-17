@@ -23,8 +23,8 @@ except IndexError:
 
 def main():
     actor_list = []
-    Sim_Time = 30
-    Num_Cars = 10
+    Sim_Time = 10000 # Seconds
+    Num_Cars = 175
     
     try:
         # Connect to the CARLA server
@@ -44,17 +44,7 @@ def main():
             sun_altitude_angle=70.0)
         world.set_weather(weather)
 
-        # Spawn ego vehicle
-        vehicle_bp = blueprint_library.filter('model3')[0]  # Default Car Model Chosen is Tesla Model 3
-        vehicle_bp.set_attribute('color', '255,0,0')  # Default Car Colorization is Red
-        #In the future, color can be randomized to help train CV Model
-        spawn_points = world.get_map().get_spawn_points()
-        spawn_point = random.choice(spawn_points)
-        vehicle = world.spawn_actor(vehicle_bp, spawn_point)
-        actor_list.append(vehicle)
-        print("Spawned vehicle: %s" % vehicle.type_id)
-
-        # Attach camera sensor
+        # Create Simulation Camera
         # Used For CV Simulation
         camera_bp = blueprint_library.find('sensor.camera.rgb')
         camera_bp.set_attribute('image_size_x', '800')
@@ -64,19 +54,27 @@ def main():
         #Change camera attributes to simulate different camera types/quality
         #Given Values are default parameters
 
-        camera_transform = carla.Transform(carla.Location(x=1.5, z=2.4))
-        camera = world.spawn_actor(camera_bp, camera_transform, attach_to=vehicle)
-        actor_list.append(camera)
-        print("Camera attached to vehicle")
+        camera_location = carla.Location(x=0.0, y=-136, z=80.0)
+        camera_rotation = carla.Rotation(pitch=270, yaw=0, roll=0)
+        camera_transform = carla.Transform(camera_location, camera_rotation)
 
+        camera = world.spawn_actor(camera_bp, camera_transform)
+        actor_list.append(camera)
+        print("Camera Location Set")
+
+        traffic_manager = client.get_trafficmanager(8000)
+        traffic_manager.global_percentage_speed_difference(10)   
+        traffic_manager.set_global_distance_to_leading_vehicle(2.5)  
+        
         # Spawn traffic vehicles
         # Number of cars can be changed to simulate different traffic conditions, Default is 10
+        spawn_points = world.get_map().get_spawn_points()
         for i in range(Num_Cars):
             vehicle_bp = random.choice(blueprint_library.filter('vehicle.*'))
             npc_spawn_point = random.choice(spawn_points)
             npc_vehicle = world.try_spawn_actor(vehicle_bp, npc_spawn_point)
             if npc_vehicle:
-                npc_vehicle.set_autopilot(True)
+                npc_vehicle.set_autopilot(True, traffic_manager.get_port())
                 actor_list.append(npc_vehicle)
 
         print("Spawned NPC vehicles")
