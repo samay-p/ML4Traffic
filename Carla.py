@@ -24,7 +24,7 @@ except IndexError:
 def main():
     actor_list = []
     Sim_Time = 10000 # Seconds
-    Num_Cars = 175
+    Num_Cars = 125
     
     try:
         # Connect to the CARLA server
@@ -46,7 +46,7 @@ def main():
 
         # Create Simulation Camera
         # Used For CV Simulation
-        camera_bp = blueprint_library.find('sensor.camera.rgb')
+        camera_bp = blueprint_library.find('sensor.camera.rgb') 
         camera_bp.set_attribute('image_size_x', '800')
         camera_bp.set_attribute('image_size_y', '600')
         camera_bp.set_attribute('fov', '90')
