@@ -39,7 +39,7 @@ fps = cap.get(cv2.CAP_PROP_FPS)
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 out = cv2.VideoWriter(temp, fourcc, fps, (width, height))
 
-print("▶️ Press 'q' to stop watching.")
+print("Press 'q' to stop watching.")
 
 # Label settings 
 box_thickness = 3
