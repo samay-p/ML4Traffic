@@ -83,7 +83,6 @@ def main():
         # Used to Simulate Real Life Camera feed for CV Processing
 
         def process_image(image):
-            """Convert raw camera data to an OpenCV image."""
             img_array = np.frombuffer(image.raw_data, dtype=np.uint8)
             img_array = np.reshape(img_array, (image.height, image.width, 4))
             img_array = img_array[:, :, :3]  # Drop alpha channel
