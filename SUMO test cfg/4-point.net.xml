@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2025-12-14T21:06:33.460310-05:00 by Eclipse SUMO netedit 1.25.0
+<!-- generated on 2026-01-13T19:07:52.090637-05:00 by Eclipse SUMO netedit 1.25.0
 <neteditConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/neteditConfiguration.xsd">
 
     <input>
@@ -14,23 +14,30 @@
     </output>
 
     <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.avoid-overlap value="false"/>
+        <geometry.max-grade.fix value="false"/>
         <offset.disable-normalization value="true"/>
+        <lefthand value="0"/>
     </processing>
 
     <junctions>
         <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.50"/>
+        <rectangular-lane-cut value="0"/>
     </junctions>
 
-    <netedit>
-        <new-network value="false"/>
-    </netedit>
+    <pedestrian>
+        <walkingareas value="0"/>
+    </pedestrian>
 
 </neteditConfiguration>
 -->
 
-<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" avoidOverlap="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
 
-    <location netOffset="0.00,0.00" convBoundary="-54.87,-27.60,51.36,37.57" origBoundary="10000000000.00,10000000000.00,-10000000000.00,-10000000000.00" projParameter="!"/>
+    <location netOffset="0.00,0.00" convBoundary="-54.87,-27.60,51.36,37.57" origBoundary="-10000000000.00,-10000000000.00,10000000000.00,10000000000.00" projParameter="!"/>
 
     <edge id=":clusterJ12_J13_J3_J8_0" function="internal">
         <lane id=":clusterJ12_J13_J3_J8_0_0" index="0" speed="6.62" length="9.30" shape="11.55,9.96 9.03,10.32 7.21,11.39 6.11,13.18 5.72,15.68"/>
@@ -118,7 +125,7 @@
         <lane id="E1.40_1" index="1" speed="13.89" length="21.94" shape="2.52,15.65 2.28,37.59"/>
     </edge>
 
-    <tlLogic id="clusterJ12_J13_J3_J8" type="static" programID="0" offset="0">
+    <tlLogic id="tls0" type="static" programID="0" offset="0">
         <phase duration="42" state="rrrrGGGgrrrrGGGg"/>
         <phase duration="3"  state="rrrryyyyrrrryyyy"/>
         <phase duration="42" state="GGGgrrrrGGGgrrrr"/>
@@ -153,22 +160,22 @@
     <junction id=":clusterJ12_J13_J3_J8_18_0" type="internal" x="-6.00" y="4.27" incLanes=":clusterJ12_J13_J3_J8_11_0 -E0_0 -E0_1" intLanes=":clusterJ12_J13_J3_J8_0_0 :clusterJ12_J13_J3_J8_1_0 :clusterJ12_J13_J3_J8_1_1 :clusterJ12_J13_J3_J8_5_0 :clusterJ12_J13_J3_J8_5_1 :clusterJ12_J13_J3_J8_7_0 :clusterJ12_J13_J3_J8_13_0 :clusterJ12_J13_J3_J8_13_1 :clusterJ12_J13_J3_J8_15_0"/>
     <junction id=":clusterJ12_J13_J3_J8_19_0" type="internal" x="0.08" y="10.77" incLanes=":clusterJ12_J13_J3_J8_15_0 E1_0 E1_1" intLanes=":clusterJ12_J13_J3_J8_1_0 :clusterJ12_J13_J3_J8_1_1 :clusterJ12_J13_J3_J8_3_0 :clusterJ12_J13_J3_J8_4_0 :clusterJ12_J13_J3_J8_5_0 :clusterJ12_J13_J3_J8_5_1 :clusterJ12_J13_J3_J8_9_0 :clusterJ12_J13_J3_J8_9_1 :clusterJ12_J13_J3_J8_11_0"/>
 
-    <connection from="-E0" to="E1.40" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_0_0" tl="clusterJ12_J13_J3_J8" linkIndex="0" dir="r" state="o"/>
-    <connection from="-E0" to="-E0.47" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_1_0" tl="clusterJ12_J13_J3_J8" linkIndex="1" dir="s" state="o"/>
-    <connection from="-E0" to="-E0.47" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_1_1" tl="clusterJ12_J13_J3_J8" linkIndex="2" dir="s" state="o"/>
-    <connection from="-E0" to="-E1.24" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_3_0" tl="clusterJ12_J13_J3_J8" linkIndex="3" dir="l" state="o"/>
-    <connection from="-E1" to="-E0.47" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_12_0" tl="clusterJ12_J13_J3_J8" linkIndex="12" dir="r" state="O"/>
-    <connection from="-E1" to="-E1.24" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_13_0" tl="clusterJ12_J13_J3_J8" linkIndex="13" dir="s" state="O"/>
-    <connection from="-E1" to="-E1.24" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_13_1" tl="clusterJ12_J13_J3_J8" linkIndex="14" dir="s" state="O"/>
-    <connection from="-E1" to="E0.51" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_15_0" tl="clusterJ12_J13_J3_J8" linkIndex="15" dir="l" state="o"/>
-    <connection from="E0" to="-E1.24" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_8_0" tl="clusterJ12_J13_J3_J8" linkIndex="8" dir="r" state="o"/>
-    <connection from="E0" to="E0.51" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_9_0" tl="clusterJ12_J13_J3_J8" linkIndex="9" dir="s" state="o"/>
-    <connection from="E0" to="E0.51" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_9_1" tl="clusterJ12_J13_J3_J8" linkIndex="10" dir="s" state="o"/>
-    <connection from="E0" to="E1.40" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_11_0" tl="clusterJ12_J13_J3_J8" linkIndex="11" dir="l" state="o"/>
-    <connection from="E1" to="E0.51" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_4_0" tl="clusterJ12_J13_J3_J8" linkIndex="4" dir="r" state="O"/>
-    <connection from="E1" to="E1.40" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_5_0" tl="clusterJ12_J13_J3_J8" linkIndex="5" dir="s" state="O"/>
-    <connection from="E1" to="E1.40" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_5_1" tl="clusterJ12_J13_J3_J8" linkIndex="6" dir="s" state="O"/>
-    <connection from="E1" to="-E0.47" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_7_0" tl="clusterJ12_J13_J3_J8" linkIndex="7" dir="l" state="o"/>
+    <connection from="-E0" to="E1.40" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_0_0" tl="tls0" linkIndex="0" dir="r" state="o"/>
+    <connection from="-E0" to="-E0.47" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_1_0" tl="tls0" linkIndex="1" dir="s" state="o"/>
+    <connection from="-E0" to="-E0.47" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_1_1" tl="tls0" linkIndex="2" dir="s" state="o"/>
+    <connection from="-E0" to="-E1.24" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_3_0" tl="tls0" linkIndex="3" dir="l" state="o"/>
+    <connection from="-E1" to="-E0.47" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_12_0" tl="tls0" linkIndex="12" dir="r" state="O"/>
+    <connection from="-E1" to="-E1.24" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_13_0" tl="tls0" linkIndex="13" dir="s" state="O"/>
+    <connection from="-E1" to="-E1.24" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_13_1" tl="tls0" linkIndex="14" dir="s" state="O"/>
+    <connection from="-E1" to="E0.51" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_15_0" tl="tls0" linkIndex="15" dir="l" state="o"/>
+    <connection from="E0" to="-E1.24" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_8_0" tl="tls0" linkIndex="8" dir="r" state="o"/>
+    <connection from="E0" to="E0.51" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_9_0" tl="tls0" linkIndex="9" dir="s" state="o"/>
+    <connection from="E0" to="E0.51" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_9_1" tl="tls0" linkIndex="10" dir="s" state="o"/>
+    <connection from="E0" to="E1.40" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_11_0" tl="tls0" linkIndex="11" dir="l" state="o"/>
+    <connection from="E1" to="E0.51" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_4_0" tl="tls0" linkIndex="4" dir="r" state="O"/>
+    <connection from="E1" to="E1.40" fromLane="0" toLane="0" via=":clusterJ12_J13_J3_J8_5_0" tl="tls0" linkIndex="5" dir="s" state="O"/>
+    <connection from="E1" to="E1.40" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_5_1" tl="tls0" linkIndex="6" dir="s" state="O"/>
+    <connection from="E1" to="-E0.47" fromLane="1" toLane="1" via=":clusterJ12_J13_J3_J8_7_0" tl="tls0" linkIndex="7" dir="l" state="o"/>
 
     <connection from=":clusterJ12_J13_J3_J8_0" to="E1.40" fromLane="0" toLane="0" dir="r" state="M"/>
     <connection from=":clusterJ12_J13_J3_J8_1" to="-E0.47" fromLane="0" toLane="0" dir="s" state="M"/>

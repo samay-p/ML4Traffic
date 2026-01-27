@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+        <!-- BALANCED -->
+
+    <flow id="f0_bal" begin="0" end="599" probability="0.04" from="E0" to="E0.51"/>
+    <flow id="f1_bal" begin="0" end="599" probability="0.04" from="E0" to="E1.40"/>
+    <flow id="f2_bal" begin="0" end="599" probability="0.04" from="E0" to="-E1.24"/>
+
+    <flow id="f3_bal" begin="0" end="599" probability="0.04" from="-E0" to="E1.40"/>
+    <flow id="f4_bal" begin="0" end="599" probability="0.04" from="-E0" to="-E0.47"/>
+    <flow id="f5_bal" begin="0" end="599" probability="0.04" from="-E0" to="-E1.24"/>
+
+    <flow id="f6_bal" begin="0" end="599" probability="0.04" from="E1" to="E1.40"/>
+    <flow id="f7_bal" begin="0" end="599" probability="0.04" from="E1" to="E0.51"/>
+    <flow id="f8_bal" begin="0" end="599" probability="0.04" from="E1" to="-E0.47"/>
+
+    <flow id="f9_bal" begin="0" end="599" probability="0.04" from="-E1" to="-E0.47"/>
+    <flow id="f10_bal" begin="0" end="599" probability="0.04" from="-E1" to="-E1.24"/>
+    <flow id="f11_bal" begin="0" end="599" probability="0.04" from="-E1" to="E0.51"/>
+
+    <!-- EW DOMINANT -->
+
+    <flow id="f0_ew" begin="600" end="1199" probability="0.07" from="E0" to="E0.51"/>
+    <flow id="f1_ew" begin="600" end="1199" probability="0.07" from="E0" to="E1.40"/>
+    <flow id="f2_ew" begin="600" end="1199" probability="0.07" from="E0" to="-E1.24"/>
+
+    <flow id="f3_ew" begin="600" end="1199" probability="0.07" from="-E0" to="E1.40"/>
+    <flow id="f4_ew" begin="600" end="1199" probability="0.07" from="-E0" to="-E0.47"/>
+    <flow id="f5_ew" begin="600" end="1199" probability="0.07" from="-E0" to="-E1.24"/>
+
+    <flow id="f6_ew" begin="600" end="1199" probability="0.02" from="E1" to="E1.40"/>
+    <flow id="f7_ew" begin="600" end="1199" probability="0.02" from="E1" to="E0.51"/>
+    <flow id="f8_ew" begin="600" end="1199" probability="0.02" from="E1" to="-E0.47"/>
+
+    <flow id="f9_ew" begin="600" end="1199" probability="0.02" from="-E1" to="-E0.47"/>
+    <flow id="f10_ew" begin="600" end="1199" probability="0.02" from="-E1" to="-E1.24"/>
+    <flow id="f11_ew" begin="600" end="1199" probability="0.02" from="-E1" to="E0.51"/>
+
+    <!-- NS DOMINANT -->
+
+    <flow id="f3_ns" begin="1200" end="1800" probability="0.02" from="-E0" to="E1.40"/>
+    <flow id="f4_ns" begin="1200" end="1800" probability="0.02" from="-E0" to="-E0.47"/>
+    <flow id="f5_ns" begin="1200" end="1800" probability="0.02" from="-E0" to="-E1.24"/>
+
+    <flow id="f0_ns" begin="1200" end="1800" probability="0.02" from="E0" to="E0.51"/>
+    <flow id="f1_ns" begin="1200" end="1800" probability="0.02" from="E0" to="E1.40"/>
+    <flow id="f2_ns" begin="1200" end="1800" probability="0.02" from="E0" to="-E1.24"/>
+
+    <flow id="f6_ns" begin="1200" end="1800" probability="0.07" from="E1" to="E1.40"/>
+    <flow id="f7_ns" begin="1200" end="1800" probability="0.07" from="E1" to="E0.51"/>
+    <flow id="f8_ns" begin="1200" end="1800" probability="0.07" from="E1" to="-E0.47"/>
+
+    <flow id="f9_ns" begin="1200" end="1800" probability="0.07" from="-E1" to="-E0.47"/>
+    <flow id="f10_ns" begin="1200" end="1800" probability="0.07" from="-E1" to="-E1.24"/>
+    <flow id="f11_ns" begin="1200" end="1800" probability="0.07" from="-E1" to="E0.51"/>
+</routes>
