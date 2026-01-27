@@ -1,0 +1,18 @@
+***Starting server on port 62214 ***
+Loading net-file from '4-point.net.xml' ... done (2ms).
+Loading route-files incrementally from '4-point.rou.xml'
+Loading done.
+Simulation version 1.25.0 started with time: 0.00.
+Simulation ended at time: 1801.00.
+Reason: TraCI requested termination.
+Performance:
+ Duration: 0.82s
+ TraCI-Duration: 0.68s
+ Real time factor: 2201.71
+ UPS: 20842.298289
+Vehicles:
+ Inserted: 827 (Loaded: 868)
+ Running: 9
+ Waiting: 41
+DijkstraRouter answered 999 queries and explored 3.00 edges on average.
+DijkstraRouter spent 0.00s answering queries (0.00ms on average).
