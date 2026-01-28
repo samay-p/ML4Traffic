@@ -1,1 +1,1 @@
-# The dataset used to fine-tune the YOLO model was sourced from screenshots of the CARLA simulation. Please email authors for access.
+# The dataset used to fine-tune the YOLO model was sourced from screenshots of the CARLA simulation. Those screenshots were then annotated using Label Studio. Please email authors for access.
