@@ -1,0 +1,11 @@
+path: C:/Users/samay/OneDrive/Documents/GitHub/ML4Traffic/split_annotated_dataset
+train: images/train
+val: images/val
+
+names:
+  0: ES_vehicle
+  1: bike
+  2: car
+  3: pedestrian
+  4: traffic_light
+  5: truck_bus
